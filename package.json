@@ -1,0 +1,40 @@
+{
+  "name": "innexgrid",
+  "version": "1.0.0",
+  "description": "InnexGrid - Decentralized Physical Infrastructure Network Platform",
+  "private": true,
+  "workspaces": [
+    "contracts",
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm run install:contracts && npm run install:frontend && npm run install:backend",
+    "install:contracts": "cd contracts && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "dev:contracts": "cd contracts && npm run node",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "test:contracts": "cd contracts && npm run test",
+    "build:contracts": "cd contracts && npm run compile",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run build"
+  },
+  "keywords": [
+    "web3",
+    "blockchain",
+    "depin",
+    "ethereum",
+    "polygon"
+  ],
+  "author": "Innexar",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
+
+
+

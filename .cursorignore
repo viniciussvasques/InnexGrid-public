@@ -1,0 +1,72 @@
+# Arquivos e pastas que o Cursor deve ignorar para evitar erros de serialização
+
+# Dependências
+node_modules/
+.pnp
+.pnp.js
+
+# Build e distribuição
+build/
+dist/
+.next/
+out/
+
+# Testes e cobertura (apenas relatórios HTML, não os arquivos de teste)
+coverage/
+.nyc_output/
+
+# Cache e artefatos
+cache/
+artifacts/
+typechain-types/
+*.tsbuildinfo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Arquivos temporários
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Arquivos grandes de documentação HTML (já processados)
+backend/docs/**/*.html
+docs/**/*.html
+
+# Arquivos de configuração do sistema
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Variáveis de ambiente
+.env
+.env.local
+.env.*.local
+
+# Arquivos de backup
+*.bak
+*.backup
+
+# Arquivos grandes de dados
+*.sql
+*.dump
+
+# Arquivos de mídia grandes
+*.mp4
+*.avi
+*.mov
+*.zip
+*.tar
+*.gz
+*.rar
+
+# Arquivos de cobertura HTML (muito grandes)
+backend/coverage/**/*.html
+

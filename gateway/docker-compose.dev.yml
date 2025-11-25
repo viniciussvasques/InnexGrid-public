@@ -1,0 +1,39 @@
+version: '3.8'
+
+# Docker Compose para desenvolvimento do Gateway
+# Use: docker-compose -f docker-compose.dev.yml up
+
+services:
+  gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: innexgrid-gateway-dev
+    environment:
+      NODE_ENV: development
+      PORT: 3002
+      BACKEND_API_URL: ${BACKEND_API_URL:-http://host.docker.internal:3001}
+      DATABASE_URL: ${DATABASE_URL:-postgresql://postgres:postgres@host.docker.internal:5432/innexgrid}
+      GATEWAY_PUBLIC_URL: ${GATEWAY_PUBLIC_URL:-http://localhost:3002}
+      LOG_LEVEL: debug
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./src:/app/src
+      - ./package.json:/app/package.json
+      - ./tsconfig.json:/app/tsconfig.json
+      - /app/node_modules
+      - gateway_logs:/app/logs
+    command: npm run dev
+    networks:
+      - gateway-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  gateway_logs:
+
+networks:
+  gateway-network:
+    driver: bridge
+
